@@ -1,0 +1,6 @@
+.venv
+__pucache__
+.vscode
+.env
+.git
+*.pyc

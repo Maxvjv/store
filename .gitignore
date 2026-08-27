@@ -1,0 +1,5 @@
+__pacache__/
+.venv/
+venv/
+.vscode
+*.log
