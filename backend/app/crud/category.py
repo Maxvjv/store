@@ -6,7 +6,7 @@ from app.models.category import Category
 from app.schemas.category import CategoryCreate,CategoryUpdate
 
 #Создание категории
-async def create_category(db: AsyncSession, category_data: CategoryCreate):
+async def create_category(db: AsyncSession, category_data: CategoryCreate,current_user:dict):
     db_category = Category(**category_data.model_dump())
     db.add(db_category)
     await db.commit()
@@ -24,12 +24,11 @@ async def get_category_id(category_id:int,db:AsyncSession) -> list[Category]:
     result = await db.execute(select(Category).where(Category.id == category_id).options(selectinload(Category.products)))
     category = result.scalar_one_or_none()
     if not category:
-        raise HTTPException(status_code = 404, detail = 'Категория не найдена')
-    await db.commit()
+         raise HTTPException(status_code =555, detail = 'Категория не найдена')
     return category
 
 #Редактирование Категории
-async def update_category(db: AsyncSession,category_id:int, category_data:CategoryUpdate):
+async def update_category(db: AsyncSession,category_id:int, category_data:CategoryUpdate,current_user:dict):
     result = await db.execute(select(Category).where(Category.id == category_id))
     category = result.scalar_one_or_none()
     if not category:
@@ -43,11 +42,11 @@ async def update_category(db: AsyncSession,category_id:int, category_data:Catego
     return category
 
 # Удаление категории
-async def delete_category(db:AsyncSession,category_id:int):
+async def delete_category(db:AsyncSession,category_id:int,current_user:dict):
     result = await db.execute(select(Category).where(Category.id == category_id))
     category = result.scalar_one_or_none()
     if not category:
-        raise HTTPException(status_code = 404, detail = 'Продукт не найден')
+        raise HTTPException(status_code = 404, detail = 'Категория не найдена')
     await db.delete(category)
     await db.commit()
     raise HTTPException(status_code = 204,detail = 'No content')

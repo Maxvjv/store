@@ -4,7 +4,6 @@ from app.schemas.user import *
 from app.schemas.product import *
 
 class FavoriteBase(BaseModel):
-    user_id: int
     product_id: int
 
 
@@ -14,11 +13,7 @@ class FavoriteCreate(FavoriteBase):
 class FavoriteResponse(FavoriteBase):
     pass
 
-class FavoriteProductShow(BaseModel):
-    product: ProductCategorySchema
 
 class FavoriteUserShow(BaseModel):
-    user: UserCartShow
-    product: list[FavoriteProductShow]
-    class Config:
-            from_attributes = True
+    product: list[ProductFavoriteShow]
+    model_config = ConfigDict(from_attributes=True)

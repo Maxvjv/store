@@ -22,6 +22,7 @@ class CategoryUpdate(CategoryBase):
     parent_id: Optional[int]
 
 class CategoryWithProduct(BaseModel):
+    id:int
     name: str
     description:str
     products: List[ProductCategorySchema]

@@ -10,11 +10,12 @@ class CartBase(BaseModel):
 class CartCreate(CartBase):
     pass
 
-class CartResponse(CartBase):
-    pass
+class CartResponse(BaseModel):
+    cart_id:int
+    product_id : int
+    quantity:int
 
 class CartItemBase(BaseModel):
-    cart_id : int
     product_id : int
 
 

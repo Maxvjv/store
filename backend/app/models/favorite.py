@@ -18,4 +18,4 @@ class Favorite(Base):
 
 
     user:Mapped['User'] = relationship(back_populates='favorite')
-    product:Mapped[list['Product']] = relationship(back_populates='favorite')
+    product:Mapped['Product'] = relationship(back_populates='favorite')

@@ -1,13 +1,29 @@
-
-
 services:
- backend:
-  build: ./backend
-  restart: always
-  env_file:
-    - ./backend/.env
-  ports:
-    - "8000:8000"
-  volumes:
-    - ./backend:/app
-    - ./data:/app/data
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: "sqlite+aiosqlite:////app/data/shop.db"
+    volumes:
+      - /var/www/store:/app/data
+    networks:
+      - app-net
+  frontend:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    container_name: my-react
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    driver: bridge

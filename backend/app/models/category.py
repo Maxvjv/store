@@ -8,6 +8,7 @@ from typing import Optional
 
 from app.models.product import Product
 
+
 class Category(Base):
     __tablename__ = 'category'
     id : Mapped[int] = mapped_column(primary_key = True, index = True)
@@ -16,3 +17,4 @@ class Category(Base):
     parent_id:Mapped[Optional[int]] = mapped_column(ForeignKey("category.id",ondelete='CASCADE'),nullable=True)
 
     products: Mapped[list["Product"]] = relationship(back_populates="category",cascade="all,delete-orphan")
+    promotions: Mapped[list["PromotionCategories"]] = relationship(back_populates="categories")

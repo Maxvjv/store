@@ -1,0 +1,202 @@
+.basket {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.basket__title {
+  margin: 0 0 20px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+}
+
+/* Адаптивная сетка: от 1 до 4 колонок */
+.basket__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .basket__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .basket__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .basket__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.basket-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.basket-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.basket-card__name {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.basket-card__price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.basket-card__unit-price {
+  font-size: 14px;
+  color: #777;
+}
+
+.basket-card__total {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.basket-card__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.btn-qty {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 123, 255, 0.4);
+  background: none;
+  color: #007bff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-qty:hover {
+  background: rgba(0, 123, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.btn-qty:active {
+  transform: scale(0.95);
+}
+
+.basket-card__qty {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  min-width: 48px;
+  text-align: center;
+}
+
+.basket-card__remove {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.basket-card__remove:hover {
+  background: rgba(220, 53, 69, 0.08);
+}
+
+/* Панель итогов — отдельный блок, не sticky */
+.basket__summary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 520px;
+  margin: 32px auto 0;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.basket__total-label {
+  font-size: 15px;
+  color: #666;
+}
+
+.basket__total-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.basket__checkout-btn {
+  width: 100%;
+  padding: 14px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.25);
+}
+
+.basket__checkout-btn:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+.basket__empty {
+  padding: 48px;
+  text-align: center;
+  color: #777;
+  background: #f8f9fa;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+}
+
+.basket__loading,
+.basket__error {
+  max-width: 480px;
+  margin: 60px auto;
+  padding: 32px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  color: #555;
+}
+
+.basket__error {
+  color: #dc3545;
+}

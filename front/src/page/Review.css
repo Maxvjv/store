@@ -1,0 +1,120 @@
+.review {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.review__title {
+  margin: 0 0 6px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+}
+
+.review__subtitle {
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: #777;
+}
+
+.review__label {
+  display: block;
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.review__input,
+.review__textarea {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  font: inherit;
+  font-size: 15px;
+  color: #1a1a1a;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review__input:focus,
+.review__textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.review__textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.review__stars {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.review__star {
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  color: #ddd;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.review__star:hover {
+  transform: scale(1.15);
+}
+
+.review__star--active {
+  color: #f5a623;
+}
+
+.review__error {
+  margin: 0 0 16px;
+  font-size: 13px;
+  color: #dc3545;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 10px 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 71, 187, 0.2);
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 71, 187, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.review__hint {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: #999;
+  text-align: center;
+}

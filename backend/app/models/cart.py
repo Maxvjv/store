@@ -16,7 +16,7 @@ class Cart(Base):
     user_id : Mapped[int] = mapped_column(ForeignKey("user.id"),unique=True,nullable= False)
 
     user: Mapped["User"] = relationship(back_populates="cart")
-    cartitem : Mapped[list['CartItem']] = relationship(back_populates='cart')
+    cartitem : Mapped[list['CartItem']] = relationship(back_populates='cart',cascade="all,delete-orphan")
 
 class CartItem(Base):
     __tablename__ = 'cartitem'
@@ -26,5 +26,5 @@ class CartItem(Base):
     quantity: Mapped[int] = mapped_column(default = 1, nullable = False)
     added_at : Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
-    cart: Mapped[list['Cart']] = relationship(back_populates='cartitem')
+    cart: Mapped['Cart'] = relationship(back_populates='cartitem')
     product: Mapped[list['Product']] = relationship(back_populates='cartitem')

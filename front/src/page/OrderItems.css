@@ -1,0 +1,129 @@
+.order-items {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.order-items__title {
+  margin: 0 0 6px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+}
+
+.order-items__subtitle {
+  margin: 0 0 24px;
+  font-size: 15px;
+  color: #777;
+}
+
+.order-items__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.order-item__name {
+  margin: 0;
+  flex: 1;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.order-item__meta {
+  margin: 0;
+  font-size: 14px;
+  color: #777;
+  white-space: nowrap;
+}
+
+.order-item__price {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  min-width: 110px;
+  text-align: right;
+}
+
+.order-items__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.order-items__total {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.order-items__total span {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #777;
+}
+
+.order-items__empty {
+  padding: 40px;
+  text-align: center;
+  color: #777;
+  font-size: 15px;
+  background: #f8f9fa;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+}
+
+.order-items__back {
+  display: inline-block;
+  margin-top: 24px;
+  text-decoration: none;
+  color: #007bff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.order-items__back:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.order-items__loading,
+.order-items__error {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 32px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  color: #555;
+  font-size: 15px;
+}
+
+.order-items__error {
+  color: #dc3545;
+}

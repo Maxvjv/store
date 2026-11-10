@@ -1,9 +1,14 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,Request,Response
+from fastapi.exceptions import RequestValidationError
+from starlette.exceptions import HTTPException
 from contextlib import asynccontextmanager
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base
 from app.models import *
 from app.api.v1 import *
+
+
+
 
 
 
@@ -13,20 +18,35 @@ async def lifespan(app: FastAPI):
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
     yield
+
+
 app = FastAPI(title="Online Shop API", lifespan=lifespan)
+
+
+
 @app.get("/")
 async def root():
-    return {"message": "Hello W56rtorld"}
+    return {"message": "Hello World"}
+
+
 @app.get("/health")
 async def health():
     return {"status": "ok"}
 
 
+# app.middleware("http")(check_middleware)
+app.include_router(router_auth)
 app.include_router(router_product)
 app.include_router(router_user)
 app.include_router(router_category)
 app.include_router(router_cart)
 app.include_router(router_favorite)
+app.include_router(router_review)
+app.include_router(router_order)
+app.include_router(router_address)
+app.include_router(router_promotion)
+
+
 
 
 app.add_middleware(
@@ -37,5 +57,3 @@ app.add_middleware(
     allow_headers=['*'],
 
 )
-
-print('Help')
